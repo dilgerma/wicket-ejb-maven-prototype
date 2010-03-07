@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>base</artifactId>
+		<groupId>de.md</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.md</groupId>
+	<artifactId>ejb</artifactId>
+	<packaging>ejb</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>ejb</name>
+	<url>http://maven.apache.org</url>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<configuration>
+					<ejbVersion>3.0</ejbVersion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>ejb-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.md</groupId>
+			<artifactId>testutil</artifactId>
+			<scope>compile</scope>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+
+</project>
