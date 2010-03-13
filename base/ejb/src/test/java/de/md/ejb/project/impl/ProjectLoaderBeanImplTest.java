@@ -3,7 +3,9 @@
  */
 package de.md.ejb.project.impl;
 
+import java.io.IOError;
 import java.io.StringWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,7 +99,7 @@ public class ProjectLoaderBeanImplTest extends DatabaseTestCase {
 	
     }
     
-    public void testPersistProjects(){
+    public void testPersistProjects() throws Exception{
 	
 	Technology tech1 = new Technology();
 	tech1.setDescription("some description");
@@ -120,24 +122,29 @@ public class ProjectLoaderBeanImplTest extends DatabaseTestCase {
 	
 	technologies.add(tech1);
 	technologies.add(tech2);
-	
+//	
 	attachments.add(attach1);
 	
 	
 	Project proj = new Project("RCP-Project","Anonym Versand Gmbh","some description",null,null);
+	proj.setId(1);
 	proj.setAttachments(attachments);
 	proj.setTechnologies(technologies);
 	bean.addProject(proj);
 	manager.getTransaction().commit();
 	
-	manager.getTransaction().begin();
-	manager.clear();
-	manager.getTransaction().commit();
+	manager = injectEntityManager("wicket-test", "entityManager", bean);
 	
 	manager.getTransaction().begin();
 	assertEquals(1, bean.loadAllProjects().size());
+	assertEquals(2, bean.loadAllProjects().get(0).getTechnologies().size());
+
+	assertEquals(1, bean.loadAllProjects().get(0).getAttachments().size());
 	manager.getTransaction().commit();
 	
+	Writer writer = new StringWriter();
+	traceDatabase(writer);
+	System.out.println(writer.toString());
     }
     
 

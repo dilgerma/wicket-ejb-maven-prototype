@@ -5,9 +5,9 @@ package de.md.ejb.project.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -21,22 +21,22 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "projects")
-@NamedQuery(name="allProjects", query="select p from Project p")
+@NamedQuery(name = "allProjects", query = "select p from Project p")
 public class Project {
 
     @Id
-    private long id;
+    private long id = -1;
     @Column(name = "title")
     private String title;
     @Column(name = "customer")
     private String customer;
     @Column(name = "description")
     private String projectDescription;
-    @OneToMany(fetch=FetchType.EAGER)
-    @JoinTable(name = "project_join", joinColumns = @JoinColumn(referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "tech_name"))
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinTable(name = "project_technologies", joinColumns = @JoinColumn(name="project_id"), inverseJoinColumns = @JoinColumn(name = "tech_name"))
     private List<Technology> technologies;
-    @OneToMany(fetch=FetchType.EAGER)
-    @JoinColumn(name="project_id")
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name = "project_id")
     private List<Attachment> attachments;
 
     /**
