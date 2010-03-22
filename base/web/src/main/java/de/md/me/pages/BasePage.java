@@ -16,15 +16,25 @@ import de.md.me.HomepageWebSession;
  */
 public abstract class BasePage extends WebPage {
 
+    /**
+     * Custom Constructor.
+     * */
     public BasePage(){
 	initPages();
     }
     
+    /**
+     * Method used to init the Pages.
+     * */
     public abstract void initPages();
     
+    /**
+     * @return the Application
+     * */
     public HomePageApplication getWebApplication(){
 	return (HomePageApplication)getApplication();
     }
+    
     
     public HomepageWebSession getWebSession(){
 	return getWebApplication().getSession();
