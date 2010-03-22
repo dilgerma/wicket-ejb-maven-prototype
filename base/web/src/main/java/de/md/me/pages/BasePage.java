@@ -4,6 +4,7 @@
 package de.md.me.pages;
 
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.protocol.http.WebSession;
 
 import de.md.me.HomePageApplication;
 import de.md.me.HomepageWebSession;
@@ -37,6 +38,6 @@ public abstract class BasePage extends WebPage {
     
     
     public HomepageWebSession getWebSession(){
-	return getWebApplication().getSession();
+	return (HomepageWebSession) getSession();
     }
 }

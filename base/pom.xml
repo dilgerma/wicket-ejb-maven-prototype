@@ -116,9 +116,9 @@
 			</dependency>
 
 			<dependency>
-				<groupId>javax.inject</groupId>
-				<artifactId>javax.inject</artifactId>
-				<version>1</version>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring</artifactId>
+				<version>2.5.6.SEC01</version>
 				<type>jar</type>
 				<scope>compile</scope>
 			</dependency>

@@ -3,13 +3,15 @@
  */
 package de.md.me;
 
-import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.apache.wicket.Page;
+import org.apache.wicket.Request;
+import org.apache.wicket.Response;
 import org.apache.wicket.Session;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.protocol.http.WebSession;
+import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
+import org.springframework.context.support.GenericApplicationContext;
 
 import de.md.me.pages.IntroPage;
 
@@ -21,10 +23,20 @@ import de.md.me.pages.IntroPage;
  */
 public abstract class BaseWebPageApplication extends WebApplication {
 
-    @Inject
-    @Named("WebSession")
-    private HomepageWebSession session;
+    private GenericApplicationContext context;
 
+    public BaseWebPageApplication(){
+    }
+    
+    /* (non-Javadoc)
+     * @see org.apache.wicket.protocol.http.WebApplication#init()
+     */
+    @Override
+    protected void init() {
+        super.init();
+        initSpringContext();
+    }
+    
     /*
      * (non-Javadoc)
      * 
@@ -35,7 +47,21 @@ public abstract class BaseWebPageApplication extends WebApplication {
 	return IntroPage.class;
     }
 
-    public HomepageWebSession getSession() {
-	return session;
+   
+    
+    /* (non-Javadoc)
+     * @see org.apache.wicket.protocol.http.WebApplication#newSession(org.apache.wicket.Request, org.apache.wicket.Response)
+     */
+    @Override
+    public Session newSession(Request request, Response response) {
+        return new HomepageWebSession(request);
     }
+    
+    protected void initSpringContext(){
+	context = new GenericApplicationContext();
+	ClassPathBeanDefinitionScanner scanner = new ClassPathBeanDefinitionScanner(context);
+	scanner.findCandidateComponents(Constants.BASE_PACKAGE);
+	context.refresh();
+    }
+    
 }
