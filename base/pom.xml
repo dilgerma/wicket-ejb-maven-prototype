@@ -142,7 +142,7 @@
 	</dependencies>
 
 	<modules>
-		<module>web</module>
+		<module>webtier</module>
 		<module>ear</module>
 		<module>ejb</module>
 	</modules>
