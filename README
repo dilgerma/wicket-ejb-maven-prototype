@@ -1,3 +1,12 @@
 This is a simple Demo Application to play around with different
-technologies like EJB3, Spring, Wicket, Maven, OSGi etc.,
+technologies like EJB3, Spring, Wicket, Maven, Scala, OSGi etc.,
 feel free to supply patches and ideas to martin.dilger@pentasys.de
+
+Currently I use the following Technologies:
+Glassfish as Application Server
+EJB3 for Middletier
+Spring 2.5 as the Connector Technology (so I can run the application presentation within a tomcat that runs against some mocks)
+Wicket as Presentation Framework
+Scala for Unit Testing (not yet, but planned)
+
+
