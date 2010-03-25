@@ -34,7 +34,6 @@ public abstract class BaseWebPageApplication extends WebApplication {
     @Override
     protected void init() {
         super.init();
-        initSpringContext();
     }
     
     /*
@@ -56,12 +55,5 @@ public abstract class BaseWebPageApplication extends WebApplication {
     public Session newSession(Request request, Response response) {
         return new HomepageWebSession(request);
     }
-    
-    protected void initSpringContext(){
-	context = new GenericApplicationContext();
-	ClassPathBeanDefinitionScanner scanner = new ClassPathBeanDefinitionScanner(context);
-	scanner.findCandidateComponents(Constants.BASE_PACKAGE);
-	context.refresh();
-    }
-    
+        
 }
