@@ -18,7 +18,7 @@ public class IntroPage extends BasePage {
      */
     @Override
     public void initPages() {
-	Label label = new Label("This is a Test");
+	Label label = new Label("me","This is a Test");
 	add(label);
 	
     }
