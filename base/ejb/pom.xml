@@ -20,6 +20,10 @@
 				<artifactId>maven-ejb-plugin</artifactId>
 				<configuration>
 					<ejbVersion>3.0</ejbVersion>
+					<generateClient>true</generateClient>
+					<clientExcludes>
+						<clientExclude>**/impl/**</clientExclude>
+					</clientExcludes>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -63,6 +67,7 @@
 			<scope>compile</scope>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
 	</dependencies>
 
 

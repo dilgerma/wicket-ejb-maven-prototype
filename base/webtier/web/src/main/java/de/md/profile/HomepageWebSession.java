@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.md.me;
+package de.md.profile;
 
 import org.apache.wicket.Request;
 import org.apache.wicket.protocol.http.WebSession;

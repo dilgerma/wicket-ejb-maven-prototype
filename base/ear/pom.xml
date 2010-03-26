@@ -10,8 +10,8 @@
 		<dependency>
 			<groupId>de.md</groupId>
 			<artifactId>ejb</artifactId>
-			<type>ejb</type>
 			<version>1.0-SNAPSHOT</version>
+			<type>ejb</type>			
 		</dependency>
 		<dependency>
 			<groupId>de.md</groupId>
@@ -21,13 +21,15 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<finalName>hp-app</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-ear-plugin</artifactId>
 				<configuration>
-				  	<!-- Make sure it is a Java EE 5 EAR -->
-          			<version>5</version>
-          			<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<displayName>ProjectEAR</displayName>
+					<!-- Make sure it is a Java EE 5 EAR -->
+					<version>5</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
@@ -37,16 +39,17 @@
 						<ejbModule>
 							<groupId>de.md</groupId>
 							<artifactId>ejb</artifactId>
+							<bundleFileName>hp-ejb.jar</bundleFileName>
 						</ejbModule>
 						<webModule>
 							<groupId>de.md</groupId>
 							<artifactId>web</artifactId>
 							<contextRoot>/me</contextRoot>
+							<bundleFileName>hp-web.war</bundleFileName>
 						</webModule>
 					</modules>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 </project>

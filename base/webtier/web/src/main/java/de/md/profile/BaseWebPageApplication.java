@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.md.me;
+package de.md.profile;
 
 
 import org.apache.wicket.Page;
@@ -9,11 +9,9 @@ import org.apache.wicket.Request;
 import org.apache.wicket.Response;
 import org.apache.wicket.Session;
 import org.apache.wicket.protocol.http.WebApplication;
-import org.apache.wicket.protocol.http.WebSession;
-import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
 import org.springframework.context.support.GenericApplicationContext;
 
-import de.md.me.pages.IntroPage;
+import de.md.profile.pages.IntroPage;
 
 /**
  * Simple Base Class for WicketApplication.

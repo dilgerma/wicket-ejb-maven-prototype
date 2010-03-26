@@ -12,7 +12,6 @@ import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
-import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 
 import de.md.ejb.project.ProjectLoaderBean;
@@ -22,7 +21,7 @@ import de.md.ejb.project.model.Project;
  * @author dilgerma
  * 
  */
-@Stateless
+@Stateless(name="ProjectLoader")
 @Local(ProjectLoaderBean.class)
 @TransactionManagement(TransactionManagementType.CONTAINER)
 @TransactionAttribute(TransactionAttributeType.REQUIRED)

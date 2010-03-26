@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.md.me;
+package de.md.profile;
 
 /**
  * @author dilgerma

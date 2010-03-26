@@ -1,13 +1,12 @@
 /**
  * 
  */
-package de.md.me.pages;
+package de.md.profile.pages;
 
 import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.protocol.http.WebSession;
 
-import de.md.me.HomePageApplication;
-import de.md.me.HomepageWebSession;
+import de.md.profile.HomePageApplication;
+import de.md.profile.HomepageWebSession;
 
 /**
  * Base Class for all Wicket Pages.
