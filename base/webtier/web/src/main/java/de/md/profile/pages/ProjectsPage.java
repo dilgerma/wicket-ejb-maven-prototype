@@ -3,9 +3,10 @@
  */
 package de.md.profile.pages;
 
-import java.util.List;
-
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.list.ListItem;
+import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import de.md.ejb.project.ProjectLoaderBean;
@@ -17,7 +18,7 @@ import de.md.ejb.project.model.Project;
  * @author dilgerma
  * 
  */
-public class IntroPage extends BasePage {
+public class ProjectsPage extends BasePage {
 
     @SpringBean
     private ProjectLoaderBean bean;
@@ -29,9 +30,18 @@ public class IntroPage extends BasePage {
      */
     @Override
     public void initPages() {
+	
+	Label label = new Label("projects", "Projekte");
+	ListView<Project> listView = new ListView<Project>("projectsList", bean.loadAllProjects()){
 
-	Label label = new Label("me", "This is a Test " + (bean != null));
+	    @Override
+	    protected void populateItem(ListItem<Project> item) {
+		item.add(new Label("projectTitle", new PropertyModel<Project>(item.getModel().getObject(),"title")));
+	    }
+	    
+	};
 	add(label);
+	add(listView);
 	
     }
 

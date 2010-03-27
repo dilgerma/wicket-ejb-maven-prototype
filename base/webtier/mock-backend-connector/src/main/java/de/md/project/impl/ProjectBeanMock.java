@@ -11,7 +11,9 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import de.md.ejb.project.ProjectLoaderBean;
+import de.md.ejb.project.model.Attachment;
 import de.md.ejb.project.model.Project;
+import de.md.ejb.project.model.Technology;
 
 /**
  * Simple Frontend Mock, that allows development
@@ -25,6 +27,10 @@ public class ProjectBeanMock implements ProjectLoaderBean {
     
     private Map<Long, Project> projects = new HashMap<Long, Project>();
 
+    public ProjectBeanMock(){
+	initMockData();
+    }
+    
     /* (non-Javadoc)
      * @see de.md.ejb.project.ProjectLoaderBean#addProject(de.md.ejb.project.model.Project)
      */
@@ -58,4 +64,10 @@ public class ProjectBeanMock implements ProjectLoaderBean {
 	projects.remove(project);
     }
 
+    private void initMockData(){
+	Project project = new Project("EJB Implementation", "Insurance Nuremberg", "Project Implementing Business Logic",new ArrayList<Technology>(), new ArrayList<Attachment>());
+	Project project2 = new Project("Wicket Implementation", "Telecommunication Munich", "First Wicket Implementation",new ArrayList<Technology>(), new ArrayList<Attachment>());
+	addProject(project);
+	addProject(project2);
+    }
 }

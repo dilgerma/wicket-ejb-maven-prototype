@@ -12,7 +12,7 @@ import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.springframework.context.support.GenericApplicationContext;
 
-import de.md.profile.pages.IntroPage;
+import de.md.profile.pages.ProjectsPage;
 
 /**
  * Simple Base Class for WicketApplication.
@@ -43,7 +43,7 @@ public abstract class BaseWebPageApplication extends WebApplication {
      */
     @Override
     public Class<? extends Page> getHomePage() {
-	return IntroPage.class;
+	return ProjectsPage.class;
     }
 
    
