@@ -9,6 +9,7 @@ import org.apache.wicket.Request;
 import org.apache.wicket.Response;
 import org.apache.wicket.Session;
 import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.springframework.context.support.GenericApplicationContext;
 
 import de.md.profile.pages.IntroPage;
@@ -32,6 +33,7 @@ public abstract class BaseWebPageApplication extends WebApplication {
     @Override
     protected void init() {
         super.init();
+        addComponentInstantiationListener(new SpringComponentInjector(this));
     }
     
     /*
@@ -53,5 +55,6 @@ public abstract class BaseWebPageApplication extends WebApplication {
     public Session newSession(Request request, Response response) {
         return new HomepageWebSession(request);
     }
-        
+    
+         
 }

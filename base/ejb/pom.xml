@@ -64,7 +64,7 @@
 		<dependency>
 			<groupId>de.md</groupId>
 			<artifactId>testutil</artifactId>
-			<scope>compile</scope>
+			<scope>test</scope>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 

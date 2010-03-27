@@ -13,11 +13,52 @@
 	<name>webtier</name>
 	<url>http://maven.apache.org</url>
 
+	<profiles>
+		<profile>
+			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>backend-connector</module>
+			</modules>
+
+		</profile>
+	</profiles>
+
 	<modules>
 		<module>web</module>
 	</modules>
 
+
+
+	<dependencies>
+		<!-- declare dependency globally to all web-tier -->
+		<dependency>
+			<groupId>de.md</groupId>
+			<artifactId>ejb</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>ejb-client</type>
+		</dependency>
+	</dependencies>
+
 	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>de.md</groupId>
+				<artifactId>backend-connector</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<type>jar</type>
+			</dependency>
+			
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>2.5</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+		</dependencies>
 	</dependencyManagement>
 
 </project>

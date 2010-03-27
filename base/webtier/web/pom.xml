@@ -16,6 +16,22 @@
 	<description></description>
 
 
+	<profiles>
+		<profile>
+			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<dependencies>
+				<!-- Enable EJB Deployment by default -->
+				<dependency>
+					<groupId>de.md</groupId>
+					<artifactId>backend-connector</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
 	<dependencies>
 		<dependency>
 			<groupId>javax.ejb</groupId>
@@ -34,12 +50,20 @@
 			<artifactId>spring</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>de.md</groupId>
-			<artifactId>ejb</artifactId>
-			<version>1.0-SNAPSHOT</version>
-			<type>ejb-client</type>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-spring</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -73,6 +97,5 @@
 		</testResources>
 
 	</build>
-
 
 </project>

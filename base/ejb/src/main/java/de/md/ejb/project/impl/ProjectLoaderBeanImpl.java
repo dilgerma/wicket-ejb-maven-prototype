@@ -21,7 +21,7 @@ import de.md.ejb.project.model.Project;
  * @author dilgerma
  * 
  */
-@Stateless(name="ProjectLoader")
+@Stateless
 @Local(ProjectLoaderBean.class)
 @TransactionManagement(TransactionManagementType.CONTAINER)
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
