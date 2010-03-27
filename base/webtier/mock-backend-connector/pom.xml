@@ -10,7 +10,7 @@
   <groupId>de.md</groupId>
   <artifactId>mock-backend-connector</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>backend-connector</name>
+  <name>mock-backend-connector</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>

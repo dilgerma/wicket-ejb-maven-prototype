@@ -30,6 +30,18 @@
 				</dependency>
 			</dependencies>
 		</profile>
+		
+		<profile>
+			<id>mock</id>
+			<dependencies>
+				<!-- Enable Mocks-->
+				<dependency>
+					<groupId>de.md</groupId>
+					<artifactId>mock-backend-connector</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+		
 	</profiles>
 
 	<dependencies>
