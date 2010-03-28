@@ -30,7 +30,6 @@
 			<modules>
 				<module>mock-backend-connector</module>
 			</modules>
-
 		</profile>
 	</profiles>
 
