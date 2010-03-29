@@ -44,9 +44,13 @@ public abstract class BasePageWithMenu extends BasePage {
 	MenuItem<ProjectsPage> workshop = new MenuItem<ProjectsPage>(
 		"Schulungen", "Schulungen", ProjectsPage.class);
 	workshop.setEnabled(false);
+	MenuItem<ContactsPage> contactsPage = new MenuItem<ContactsPage>(
+		"Kontakt", "Kontakt", ContactsPage.class);
+	
 	itemList.add(projectsPage);
 	itemList.add(blog);
 	itemList.add(workshop);
+	itemList.add(contactsPage);
 	return itemList;
     }
 }

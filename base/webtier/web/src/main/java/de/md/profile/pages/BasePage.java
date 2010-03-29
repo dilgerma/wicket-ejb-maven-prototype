@@ -4,6 +4,7 @@
 package de.md.profile.pages;
 
 import org.apache.wicket.markup.html.WebPage;
+import org.hibernate.property.Getter;
 
 import de.md.profile.HomePageApplication;
 import de.md.profile.HomepageWebSession;
@@ -16,12 +17,32 @@ import de.md.profile.HomepageWebSession;
  */
 public abstract class BasePage extends WebPage {
 
+    protected String title;
+    
     /**
      * Custom Constructor.
      * */
     public BasePage() {
-	initPages();
+	initPages();	
     }
+
+    
+    
+    /**
+     * @return the title
+     */
+    public String getTitle() {
+        return title;
+    }
+    
+    /**
+     * @param title the PageTitle
+     * */
+    protected void setTitle(String title){
+	this.title = title;
+    }
+
+
 
     /**
      * Method used to init the Pages.

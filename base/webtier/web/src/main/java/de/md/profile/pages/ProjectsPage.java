@@ -24,6 +24,10 @@ public class ProjectsPage extends BasePageWithMenu {
     @SpringBean
     private ProjectLoaderBean bean;
 
+    public ProjectsPage(){
+	setTitle("Projekte");
+    }
+    
     /*
      * (non-Javadoc)
      * 
@@ -32,7 +36,7 @@ public class ProjectsPage extends BasePageWithMenu {
     @Override
     public void initPages() {
 	createMenu();
-	Label label = new Label("projects", "Projekte");
+	Label label = new Label("pageTitle", getTitle());
 	ListView<Project> listView = new ListView<Project>("projectsList", bean
 		.loadAllProjects()) {
 
