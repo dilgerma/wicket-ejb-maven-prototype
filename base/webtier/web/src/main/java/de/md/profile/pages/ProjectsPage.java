@@ -18,7 +18,7 @@ import de.md.ejb.project.model.Project;
  * @author dilgerma
  * 
  */
-public class ProjectsPage extends BasePage {
+public class ProjectsPage extends BasePageWithMenu {
 
     @SpringBean
     private ProjectLoaderBean bean;
@@ -30,7 +30,7 @@ public class ProjectsPage extends BasePage {
      */
     @Override
     public void initPages() {
-	
+	createMenu();
 	Label label = new Label("projects", "Projekte");
 	ListView<Project> listView = new ListView<Project>("projectsList", bean.loadAllProjects()){
 
@@ -42,6 +42,7 @@ public class ProjectsPage extends BasePage {
 	};
 	add(label);
 	add(listView);
+	
 	
     }
 
