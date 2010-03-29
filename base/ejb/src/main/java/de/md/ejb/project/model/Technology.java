@@ -22,7 +22,17 @@ public class Technology {
     @Column(name="description")
     private String description;
     
-
+    public Technology(String name, String description){
+	this.name = name;
+	this.description = description;
+    }
+    
+    public Technology(String name){
+	this.name = name;
+    }
+    
+    public Technology(){}
+    
     /**
      * @return the name
      */

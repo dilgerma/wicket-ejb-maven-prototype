@@ -3,6 +3,7 @@
  */
 package de.md.profile.pages;
 
+import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
@@ -32,21 +33,37 @@ public class ProjectsPage extends BasePageWithMenu {
     public void initPages() {
 	createMenu();
 	Label label = new Label("projects", "Projekte");
-	ListView<Project> listView = new ListView<Project>("projectsList", bean.loadAllProjects()){
+	ListView<Project> listView = new ListView<Project>("projectsList", bean
+		.loadAllProjects()) {
 
 	    @Override
 	    protected void populateItem(ListItem<Project> item) {
-		item.add(new Label("projectTitle", new PropertyModel<Project>(item.getModel().getObject(),"title")));
+		item.add(new Label("title", new PropertyModel<Project>(item
+			.getModelObject(), "title")));
+		item.add(new Label("projectDescription",
+			new PropertyModel<Project>(item.getModelObject(),
+				"projectDescription")));
+		item.add(new ListView("technologyList",
+			new PropertyModel<Project>(item.getModelObject(),
+				"technologies")) {
+
+		    @Override
+		    protected void populateItem(ListItem item) {
+			
+			item.add(new Label("name", new PropertyModel(item
+				.getModelObject(), "name")));
+		    }
+
+		});
 	    }
-	    
+
 	};
 	add(label);
 	add(listView);
-	
-	
+
     }
 
-    public void setProjectLoaderBean(ProjectLoaderBean bean){
+    public void setProjectLoaderBean(ProjectLoaderBean bean) {
 	this.bean = bean;
     }
 }

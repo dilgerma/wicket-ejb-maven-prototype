@@ -1,25 +1,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html
-	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd
+    xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd
 ">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Martin Dilger - Softwareentwickler und Eclipsse Enthusiast</title>
-<link type="text/css" rel="stylesheet" href="css/style.css"/>
+<title>Martin Dilger - Softwareentwickler und Eclipsse
+Enthusiast</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 <div id="menu">
-	<ul class="menulist">
-		<li class="menu" wicket:id="menu">
-			<a href="#" wicket:id="link">
-				<span wicket:id="caption"></span>
-			</a>
-		</li>
-	</ul>
+<ul class="menulist">
+    <li class="menu" wicket:id="menu"><a href="#" wicket:id="link">
+    <span wicket:id="caption"></span> </a></li>
+</ul>
 </div>
-<div id="title" wicket:id="projects"/>
-<div id="content" wicket:id="projectsList">
-	<div wicket:id="projectTitle"/>
+<div id="title" wicket:id="projects" />
+<div id="content">
+<div class="project" wicket:id="projectsList">
+<div class="projectDesc">
+<h2 wicket:id="title" />
+<div wicket:id="projectDescription" /></div>
+<div>
+
+<ul class="technologyList">
+    <div wicket:id="technologyList">
+    <li wicket:id="name" class="technology" />
+    </div>
+</ul>
+</div>
+</div>
 </div>
 </body>
 </html>

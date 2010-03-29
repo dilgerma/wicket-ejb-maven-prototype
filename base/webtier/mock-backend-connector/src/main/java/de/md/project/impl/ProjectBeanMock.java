@@ -65,8 +65,30 @@ public class ProjectBeanMock implements ProjectLoaderBean {
     }
 
     private void initMockData(){
-	Project project = new Project("EJB Implementation", "Insurance Nuremberg", "Project Implementing Business Logic",new ArrayList<Technology>(), new ArrayList<Attachment>());
-	Project project2 = new Project("Wicket Implementation", "Telecommunication Munich", "First Wicket Implementation",new ArrayList<Technology>(), new ArrayList<Attachment>());
+	
+	List<Technology> techList1 = new ArrayList<Technology>();
+	Technology jsfTech = new Technology("JSF");
+	Technology ejbTech1 = new Technology("EJB3.1");
+	Technology IvyTech = new Technology("Ivy");
+	techList1.add(jsfTech);
+	techList1.add(ejbTech1);
+	techList1.add(IvyTech);
+	
+	List<Technology> techList2 = new ArrayList<Technology>();
+	Technology wicketTech = new Technology("Wicket");
+	Technology ejbTech = new Technology("EJB3.1");
+	Technology mavenTech = new Technology("Maven2");
+	techList2.add(wicketTech);
+	techList2.add(ejbTech);
+	techList2.add(mavenTech);
+	
+	
+	
+	
+	Project project = new Project("EJB Implementation", "Insurance Nuremberg", "Project Implementing Business Logic",techList1, new ArrayList<Attachment>());
+	project.setId(1);
+	Project project2 = new Project("Wicket Implementation", "Telecommunication Munich", "First Wicket Implementation",techList2, new ArrayList<Attachment>());
+	project2.setId(2);
 	addProject(project);
 	addProject(project2);
     }
