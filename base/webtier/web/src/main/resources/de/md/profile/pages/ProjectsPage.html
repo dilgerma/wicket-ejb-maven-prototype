@@ -2,33 +2,21 @@
 <html
     xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd
 ">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Martin Dilger - Softwareentwickler und Eclipsse
-Enthusiast</title>
-<link type="text/css" rel="stylesheet" href="css/style.css" />
-</head>
 <body>
-<div id="menu">
-<ul class="menulist">
-    <li class="menu" wicket:id="menu"><a href="#" wicket:id="link">
-    <span wicket:id="caption"></span> </a></li>
-</ul>
-</div>
-<div id="title" wicket:id="pageTitle" />
-<div class="content">
-<div class="project" wicket:id="projectsList">
-<div class="projectDesc">
-<h2 wicket:id="title" />
-<div wicket:id="projectDescription" /></div>
-<div>
-<ul class="technologyList">
-    <div wicket:id="technologyList">
-    <li wicket:id="name" class="technology" />
+<div class="content"><wicket:extend>
+    <div class="project" wicket:id="projectsList">
+    <div class="projectDesc">
+    <h2 wicket:id="title" />
+    <div wicket:id="projectDescription" /></div>
+    <div>
+    <ul class="technologyList">
+        <div wicket:id="technologyList">
+        <li wicket:id="name" class="technology" />
+        </div>
+    </ul>
     </div>
-</ul>
 </div>
-</div>
+</wicket:extend>
 </div>
 </body>
 </html>

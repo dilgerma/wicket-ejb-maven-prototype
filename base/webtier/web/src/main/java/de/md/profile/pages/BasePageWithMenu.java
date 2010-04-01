@@ -10,7 +10,7 @@ import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.basic.Label;
 
 import de.md.profile.pages.menu.MenuItem;
-import de.md.profile.pages.menu.MenuRenderer;
+import de.md.profile.pages.menu.MenuPanel;
 
 /**
  * Base Page which renders the Application Menu.
@@ -25,7 +25,7 @@ public abstract class BasePageWithMenu extends BasePage {
      * @return the MenuComponent.
      * */
     protected void createMenu() {
-	add(new MenuRenderer("menu", createMenuItems()));
+	add(new MenuPanel("menu", createMenuItems()));
     }
 
     /**

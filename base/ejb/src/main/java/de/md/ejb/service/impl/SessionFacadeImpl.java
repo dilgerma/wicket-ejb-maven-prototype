@@ -7,6 +7,10 @@ import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 
 import de.md.ejb.contact.ContactsBean;
 import de.md.ejb.contact.model.Contact;
@@ -18,6 +22,9 @@ import de.md.ejb.service.SessionFacade;
  * @author dilgerma
  *
  */
+@Stateless
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+@Local(SessionFacade.class)
 public class SessionFacadeImpl implements SessionFacade {
 
     @EJB

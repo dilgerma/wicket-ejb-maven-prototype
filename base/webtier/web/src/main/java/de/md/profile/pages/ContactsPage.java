@@ -6,6 +6,8 @@ package de.md.profile.pages;
 import java.util.Arrays;
 import java.util.Date;
 
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.form.AjaxFallbackButton;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.SubmitLink;
@@ -80,7 +82,7 @@ public class ContactsPage extends BasePageWithMenu {
 	textArea.setRequired(true);
 	form.add(textArea);
 
-	form.add(new SubmitLink("contactSubmit") {
+	form.add(new AjaxFallbackButton("contactSubmit",form) {
 
 	    /*
 	     * (non-Javadoc)
@@ -88,7 +90,7 @@ public class ContactsPage extends BasePageWithMenu {
 	     * @see org.apache.wicket.markup.html.form.Button#onSubmit()
 	     */
 	    @Override
-	    public void onSubmit() {
+	    public void onSubmit(AjaxRequestTarget target, Form<?> form) {
 		facade.saveContact((Contact)form.getModelObject());
 	    }
 

@@ -2,27 +2,17 @@
 <html
     xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd
 ">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Martin Dilger - Softwareentwickler und Eclipsse
-Enthusiast</title>
-<link type="text/css" rel="stylesheet" href="css/style.css" />
-</head>
 <body>
-<div id="menu">
-<ul class="menulist">
-    <li class="menu" wicket:id="menu"><a href="#" wicket:id="link">
-    <span wicket:id="caption"></span> </a></li>
-</ul>
-</div>
-<div id="title" wicket:id="pageTitle" />
+
 <div class="content">
+<wicket:extend>
 <div wicket:id="contactsFormFeedback" />
 <form wicket:id="contactsForm" class="contactsForm"><input type="text"
     wicket:id="name" /> <input type="text" wicket:id="email" /> <select
     wicket:id="reason" />
     <textArea wicket:id="text"></textArea>
     <input type="submit" wicket:id="contactSubmit" value="Senden" /></form>
+    </wicket:extend>
 </div>
 </body>
 </html>

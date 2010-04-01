@@ -6,16 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Martin Dilger - Softwareentwickler und Eclipsse
 Enthusiast</title>
-<link type="text/css" rel="stylesheet" href="css/style.css" />
+<wicket:link>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+</wicket:link>
+
 </head>
 <body>
-<div id="menu">
-<ul class="menulist">
-    <li class="menu" wicket:id="menu"><a href="#" wicket:id="link">
-    <span wicket:id="caption"></span> </a></li>
-</ul>
-</div>
+<div wicket:id = "menu"/>
 <div id="title" wicket:id="pageTitle" />
-<div class="content"/>
+<div class="content">
+    <wicket:child/>
+</div>
 </body>
 </html>
