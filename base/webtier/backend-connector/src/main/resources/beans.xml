@@ -6,8 +6,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
 		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd">
 	<jee:local-slsb id="projectLoaderBean"
-		jndi-name="java:global/hp-app/hp-ejb/ProjectLoaderBeanImpl"
-		business-interface="de.md.ejb.project.ProjectLoaderBean" />
+		jndi-name="java:global/hp-app/hp-ejb/SessionFacadeImpl"
+		business-interface="de.md.ejb.project.service.SessionFacade" />
 	<context:component-scan base-package="de.md"/>
 	<context:annotation-config/>
 </beans>

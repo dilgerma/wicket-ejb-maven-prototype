@@ -23,6 +23,7 @@
 					<generateClient>true</generateClient>
 					<clientExcludes>
 						<clientExclude>**/impl/**</clientExclude>
+						<clientExclude>**/util</clientExclude>
 					</clientExcludes>
 				</configuration>
 			</plugin>
@@ -64,6 +65,13 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>1.6</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 

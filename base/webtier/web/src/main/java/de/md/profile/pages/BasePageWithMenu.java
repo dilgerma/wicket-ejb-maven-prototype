@@ -6,8 +6,8 @@ package de.md.profile.pages;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.wicket.Component;
 import org.apache.wicket.Page;
+import org.apache.wicket.markup.html.basic.Label;
 
 import de.md.profile.pages.menu.MenuItem;
 import de.md.profile.pages.menu.MenuRenderer;
@@ -52,5 +52,16 @@ public abstract class BasePageWithMenu extends BasePage {
 	itemList.add(workshop);
 	itemList.add(contactsPage);
 	return itemList;
+    }
+    
+    /**
+     * Initializes Menu-Navigation.
+     * If you do not need any menu, just do not call super-Implementation
+     * in Subclasses.
+     * */
+    @Override
+    public void initPages() {
+	createMenu();
+	add(new Label("pageTitle", getTitle()));
     }
 }

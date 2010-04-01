@@ -3,7 +3,6 @@
  */
 package de.md.ejb.project.impl;
 
-import java.io.IOError;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;

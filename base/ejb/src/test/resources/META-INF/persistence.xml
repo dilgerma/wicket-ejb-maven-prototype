@@ -7,5 +7,6 @@
 		<class>de.md.ejb.project.model.Attachment</class>
 		<class>de.md.ejb.project.model.Project</class>
 		<class>de.md.ejb.project.model.Technology</class>
+		<class>de.md.ejb.contact.model.Contact</class>
 	</persistence-unit>
 </persistence>

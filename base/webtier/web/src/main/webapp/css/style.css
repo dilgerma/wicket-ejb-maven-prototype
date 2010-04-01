@@ -46,10 +46,10 @@ Applikationsspezifische Settings
 	background-image: url("images/musternavi.png");
 }
 
-#content {
+.content {
 	position: relative;
 	left: 50px;
-	top: 70px;
+	top: 100px;
 }
 
 #title {
@@ -89,4 +89,18 @@ ul.menulist {
 	list-style-type: none;
 	position: relative;
 	display:inline;
+}
+
+.contactsForm {
+	
+	border:none;
+	padding: 10px;
+	
+}
+
+.contactsForm > input,select,textarea {
+	background-color: #EEEEEE;
+	margin-bottom: 10px;
+	display:block;	
+	
 }

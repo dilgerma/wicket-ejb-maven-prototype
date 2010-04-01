@@ -3,15 +3,14 @@
  */
 package de.md.profile.pages;
 
-import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-import de.md.ejb.project.ProjectLoaderBean;
 import de.md.ejb.project.model.Project;
+import de.md.ejb.service.SessionFacade;
 
 /**
  * IntroPage. This page holds simple description of the person.
@@ -22,7 +21,7 @@ import de.md.ejb.project.model.Project;
 public class ProjectsPage extends BasePageWithMenu {
 
     @SpringBean
-    private ProjectLoaderBean bean;
+    private SessionFacade facade;
 
     public ProjectsPage(){
 	setTitle("Projekte");
@@ -37,7 +36,7 @@ public class ProjectsPage extends BasePageWithMenu {
     public void initPages() {
 	createMenu();
 	Label label = new Label("pageTitle", getTitle());
-	ListView<Project> listView = new ListView<Project>("projectsList", bean
+	ListView<Project> listView = new ListView<Project>("projectsList", facade
 		.loadAllProjects()) {
 
 	    @Override
@@ -67,7 +66,7 @@ public class ProjectsPage extends BasePageWithMenu {
 
     }
 
-    public void setProjectLoaderBean(ProjectLoaderBean bean) {
-	this.bean = bean;
+    public void setSessionFacade(SessionFacade facade) {
+	this.facade = facade;
     }
 }
