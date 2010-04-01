@@ -3,8 +3,10 @@
  */
 package de.md.project.impl;
 
+import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,6 +50,7 @@ public class SessionFacadeMock implements SessionFacade {
      */
     @Override
     public void removeContact(Contact arg0) {
+	checkId(arg0);
 	contactBean.removeContact(arg0);
     }
     
@@ -56,6 +59,7 @@ public class SessionFacadeMock implements SessionFacade {
      */
     @Override
     public Contact replyTo(Contact arg0, Contact arg1) {
+	checkId(arg1);
 	return contactBean.replyTo(arg0, arg1);
     }
 
@@ -64,6 +68,7 @@ public class SessionFacadeMock implements SessionFacade {
      */
     @Override
     public void saveContact(Contact arg0) {
+	checkId(arg0);
 	contactBean.saveContact(arg0);
     }
     
@@ -82,6 +87,7 @@ public class SessionFacadeMock implements SessionFacade {
      */
     @Override
     public void removeProject(Project arg0) {
+	checkId(arg0);
 	projectBean.removeProject(arg0);
     }
     
@@ -109,6 +115,10 @@ public class SessionFacadeMock implements SessionFacade {
     
     public void setProjectLoaderBean(ProjectLoaderBean bean){
 	this.projectBean = bean;
+    }
+    
+    protected void checkId(Object p){
+	IDChecker.WithObject(p).WithNewIdIfNull(new Random().nextLong());
     }
 
 }
