@@ -50,6 +50,7 @@ Applikationsspezifische Settings
 	position: relative;
 	left: 50px;
 	top: 100px;
+	width: 900px;
 }
 
 #title {
@@ -79,8 +80,8 @@ ul.menulist {
 	border: 1px solid gray;
 	padding: 10px;
 	width: 350px;
-	height:100%;
-	float:left;
+	height: 100%;
+	float: left;
 }
 
 .technologyList {
@@ -88,19 +89,38 @@ ul.menulist {
 	margin-top: 0px;
 	list-style-type: none;
 	position: relative;
-	display:inline;
+	display: inline;
 }
 
 .contactsForm {
-	
-	border:none;
+	border: 1px solid gray;
 	padding: 10px;
-	
+	width: 250px;
+	margin-left: 25px;
+	background-color: #EEEEEE;
+	float: left;
 }
 
-.contactsForm > input,select,textarea {
-	background-color: #EEEEEE;
+.feedbackPanel{
+	font-color: #ff0000;
+	font-family:arial;
+	list-style-type:none;
+	margin-left:none;
+	width: 180px;
+}
+
+.contactsForm>input,select,textarea {
 	margin-bottom: 10px;
-	display:block;	
+	display: block;
+}
+.contactInfo{
+	margin-bottom: 15px;
+	width: 180px;
+	border: 1px solid gray;
+	padding: 10px;
+}
+
+.contactDisplay{
+	float: right;
 	
 }

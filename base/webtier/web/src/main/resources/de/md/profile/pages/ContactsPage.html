@@ -6,13 +6,18 @@
 
 <div class="content">
 <wicket:extend>
-<div wicket:id="contactsFormFeedback" />
+<div>
+<div wicket:id="contactsFormFeedback" class="contactsFormFeedback" />
 <form wicket:id="contactsForm" class="contactsForm"><input type="text"
     wicket:id="name" /> <input type="text" wicket:id="email" /> <select
     wicket:id="reason" />
     <textArea wicket:id="text"></textArea>
     <input type="submit" wicket:id="contactSubmit" value="Senden" /></form>
+    </div>
+    <div class="contacts" wicket:id="contacts"/>
+    
     </wicket:extend>
 </div>
+
 </body>
 </html>

@@ -6,8 +6,7 @@ package de.md.profile.pages;
 import java.util.Arrays;
 import java.util.Date;
 
-import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.markup.html.form.AjaxFallbackButton;
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.SubmitLink;
@@ -20,6 +19,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import de.md.ejb.contact.model.Contact;
 import de.md.ejb.contact.model.ContactReason;
 import de.md.ejb.service.SessionFacade;
+import de.md.profile.pages.contact.ContactsDisplayPanel;
 
 /**
  * ContactsPage Implementation.
@@ -46,8 +46,11 @@ public class ContactsPage extends BasePageWithMenu {
 	super.initPages();
 
 	Contact contact = newContact();
-
-	add(new FeedbackPanel("contactsFormFeedback"));
+	FeedbackPanel feedbackPanel = new FeedbackPanel("contactsFormFeedback");
+	feedbackPanel.setOutputMarkupPlaceholderTag(true);
+	feedbackPanel.setOutputMarkupId(true);
+	add(feedbackPanel);
+	
 	final Form form = new Form("contactsForm",
 		new CompoundPropertyModel<Contact>(contact)) {
 	    protected void onSubmit() {
@@ -82,7 +85,7 @@ public class ContactsPage extends BasePageWithMenu {
 	textArea.setRequired(true);
 	form.add(textArea);
 
-	form.add(new AjaxFallbackButton("contactSubmit",form) {
+	form.add(new SubmitLink("contactSubmit",form) {
 
 	    /*
 	     * (non-Javadoc)
@@ -90,13 +93,14 @@ public class ContactsPage extends BasePageWithMenu {
 	     * @see org.apache.wicket.markup.html.form.Button#onSubmit()
 	     */
 	    @Override
-	    public void onSubmit(AjaxRequestTarget target, Form<?> form) {
+	    public void onSubmit() {
 		facade.saveContact((Contact)form.getModelObject());
 	    }
 
 	});
 
 	add(form);
+	add(new ContactsDisplayPanel("contacts", facade.loadAllContacts()));
     }
 
     /**

@@ -30,9 +30,10 @@
 				</dependency>
 			</dependencies>
 		</profile>
-		
+
 		<profile>
 			<id>mock</id>
+			
 			<dependencies>
 				<!-- Enable Mocks-->
 				<dependency>
@@ -40,8 +41,28 @@
 					<artifactId>mock-backend-connector</artifactId>
 				</dependency>
 			</dependencies>
+
+			<!-- Jetty Plugin -->
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.mortbay.jetty</groupId>
+						<artifactId>maven-jetty-plugin</artifactId>
+						<configuration>
+							<scanIntervalSeconds>5</scanIntervalSeconds>
+							<connectors>
+								<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+									<port>8080</port>
+									<maxIdleTime>60000</maxIdleTime>
+								</connector>
+							</connectors>
+						</configuration>
+
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
-		
+
 	</profiles>
 
 	<dependencies>

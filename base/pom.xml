@@ -147,6 +147,28 @@
 		<module>ejb</module>
 	</modules>
 
+	<profiles>
+		<profile>
+			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>webtier</module>
+				<module>ear</module>
+				<module>ejb</module>
+			</modules>
+
+		</profile>
+
+		<profile>
+			<id>mock</id>
+			<modules>
+				<module>webtier</module>
+			</modules>
+		</profile>
+	</profiles>
+
 	<repositories>
 		<repository>
 			<id>jboss</id>
