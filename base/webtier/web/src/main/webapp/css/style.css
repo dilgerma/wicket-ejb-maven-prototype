@@ -118,9 +118,13 @@ ul.menulist {
 	width: 180px;
 	border: 1px solid gray;
 	padding: 10px;
+	background-color: #EEEEEE;
 }
 
 .contactDisplay{
-	float: right;
-	
+	float: right;	
+	overflow: auto;
+	height: 450px;
+	overflow-x:hidden;
 }
+

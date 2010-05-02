@@ -16,7 +16,7 @@ import java.lang.reflect.Method;
 public class IDChecker {
 
     private Object o;
-
+   
     private IDChecker(Object o) {
 	this.o = o;
     }
@@ -30,7 +30,7 @@ public class IDChecker {
 	if(f == null)
 	    return this;
 	try {
-	    f.set(o, id);
+	    f.set(o, new Long(id));
 	} catch (Exception e) {
 	    throw new IllegalArgumentException(e);
 	}
@@ -41,7 +41,7 @@ public class IDChecker {
 	try {
 	    Field f = o.getClass().getDeclaredField("id");
 	    f.setAccessible(true);
-	    if (f.get(o) == null) {
+	    if ((Long.valueOf((Long)f.get(o)) == 0)) {
 		return f;
 	    } else {
 		return null;

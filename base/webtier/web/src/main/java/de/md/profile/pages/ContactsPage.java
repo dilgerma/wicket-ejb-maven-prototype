@@ -6,10 +6,10 @@ package de.md.profile.pages;
 import java.util.Arrays;
 import java.util.Date;
 
-import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.form.SubmitLink;
 import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
@@ -31,10 +31,16 @@ public class ContactsPage extends BasePageWithMenu {
 
     @SpringBean
     private SessionFacade facade;
-
+    private ContactsDisplayPanel contactDisplayPanel;
+    
     public ContactsPage() {
 	setTitle("Kontakt");
+	if(getWebSession().getContacts() == null){
+	    getWebSession().setContacts(facade.loadAllContacts());
+	}
     }
+    
+    
 
     /*
      * (non-Javadoc)
@@ -54,6 +60,7 @@ public class ContactsPage extends BasePageWithMenu {
 	final Form form = new Form("contactsForm",
 		new CompoundPropertyModel<Contact>(contact)) {
 	    protected void onSubmit() {
+		//omitted
 	    };
 
 	    /*
@@ -85,7 +92,7 @@ public class ContactsPage extends BasePageWithMenu {
 	textArea.setRequired(true);
 	form.add(textArea);
 
-	form.add(new SubmitLink("contactSubmit",form) {
+	form.add(new AjaxSubmitLink("contactSubmit", form) {
 
 	    /*
 	     * (non-Javadoc)
@@ -93,14 +100,19 @@ public class ContactsPage extends BasePageWithMenu {
 	     * @see org.apache.wicket.markup.html.form.Button#onSubmit()
 	     */
 	    @Override
-	    public void onSubmit() {
+	    public void onSubmit(AjaxRequestTarget target, Form form) {
 		facade.saveContact((Contact)form.getModelObject());
+		getWebSession().setContacts(facade.loadAllContacts());
+		target.addComponent(contactDisplayPanel);
+		form.getModel().setObject(newContact());
 	    }
 
 	});
-
+	
 	add(form);
-	add(new ContactsDisplayPanel("contacts", facade.loadAllContacts()));
+	contactDisplayPanel = new ContactsDisplayPanel("contacts");
+	contactDisplayPanel.setOutputMarkupId(true);
+	add(contactDisplayPanel);
     }
 
     /**

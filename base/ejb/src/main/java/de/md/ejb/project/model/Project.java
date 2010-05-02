@@ -3,6 +3,7 @@
  */
 package de.md.ejb.project.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -22,7 +23,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "projects")
 @NamedQuery(name = "allProjects", query = "select p from Project p")
-public class Project {
+public class Project implements Serializable {
 
     @Id
     private long id = -1;

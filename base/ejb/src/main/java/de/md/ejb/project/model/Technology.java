@@ -3,6 +3,8 @@
  */
 package de.md.ejb.project.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,7 +16,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Technologies")
-public class Technology {
+public class Technology implements Serializable {
     
     @Id
     @Column(name="tech_name")
