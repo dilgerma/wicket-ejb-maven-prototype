@@ -8,7 +8,10 @@
 	<jee:local-slsb id="sessionFacade"
 		jndi-name="java:global/hp-app/hp-ejb/SessionFacadeImpl"
 		business-interface="de.md.ejb.service.SessionFacade" />
-		
-	<context:component-scan base-package="de.md"/>
-	<context:annotation-config/>
+
+	<jee:local-slsb id="workshopBean"
+		jndi-name="java:global/hp-app/hp-ejb/WorkshopBean" business-interface="de.md.ejb.workshop.WorkshopBean" />
+
+	<context:component-scan base-package="de.md" />
+	<context:annotation-config />
 </beans>

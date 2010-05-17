@@ -8,5 +8,6 @@
 		<class>de.md.ejb.project.model.Project</class>
 		<class>de.md.ejb.project.model.Technology</class>
 		<class>de.md.ejb.contact.model.Contact</class>
+		<class>de.md.ejb.workshop.model.Workshop</class>
 	</persistence-unit>
 </persistence>

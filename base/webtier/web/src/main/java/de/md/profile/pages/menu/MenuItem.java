@@ -14,8 +14,6 @@ import org.apache.wicket.Page;
  *
  */
 public class MenuItem<T extends Page> implements Serializable {
-
-    
     
     /**
      * 

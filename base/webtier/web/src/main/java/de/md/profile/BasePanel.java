@@ -6,7 +6,6 @@ package de.md.profile;
 import org.apache.wicket.Session;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.protocol.http.WebSession;
 
 /**
  * BasePanel to provide common functionality.

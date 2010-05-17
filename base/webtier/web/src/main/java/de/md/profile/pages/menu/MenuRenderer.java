@@ -52,6 +52,7 @@ public class MenuRenderer extends RepeatingView {
 		bmLink.setEnabled(item.isEnabled());
 		parent.add(bmLink);
 		bmLink.add(new Label("caption", item.getCaption()));
+	
 	    }
 	}
 

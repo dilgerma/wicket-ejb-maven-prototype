@@ -41,9 +41,8 @@ public abstract class BasePageWithMenu extends BasePage {
 	MenuItem<ProjectsPage> blog = new MenuItem<ProjectsPage>(
 		"Blog", "Blog", ProjectsPage.class);
 	blog.setEnabled(false);
-	MenuItem<ProjectsPage> workshop = new MenuItem<ProjectsPage>(
-		"Schulungen", "Schulungen", ProjectsPage.class);
-	workshop.setEnabled(false);
+	MenuItem<WorkshopPage> workshop = new MenuItem<WorkshopPage>(
+		"Schulungen", "Schulungen", WorkshopPage.class);
 	MenuItem<ContactsPage> contactsPage = new MenuItem<ContactsPage>(
 		"Kontakt", "Kontakt", ContactsPage.class);
 	

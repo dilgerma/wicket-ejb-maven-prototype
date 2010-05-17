@@ -37,7 +37,8 @@ public class Project implements Serializable {
     @JoinTable(name = "project_technologies", joinColumns = @JoinColumn(name="project_id"), inverseJoinColumns = @JoinColumn(name = "tech_name"))
     private List<Technology> technologies;
     @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name = "project_id")
+//    @JoinColumn(name = "project_id")
+    @JoinTable(name="project_attachment", joinColumns = @JoinColumn(name="project_id"), inverseJoinColumns=@JoinColumn(name="attachment_id"))
     private List<Attachment> attachments;
 
     /**
