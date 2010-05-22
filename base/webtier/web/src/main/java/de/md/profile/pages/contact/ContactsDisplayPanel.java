@@ -33,7 +33,7 @@ public class ContactsDisplayPanel extends BasePanel {
     protected void initPanel() {
 	final ListView listView = new ListView("contactInfo", new Model<ArrayList<Contact>>() {
 	    public ArrayList<Contact> getObject() {
-		return (ArrayList<Contact>)getWebSession().getContacts();
+		return new ArrayList<Contact>(getWebSession().getContacts());
 	    };
 	}) {
 

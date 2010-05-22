@@ -37,7 +37,7 @@ import de.md.ejb.util.DateUtil;
 @NamedQueries( {
 	@NamedQuery(name = Contact.QUERY_BY_DATE, query = "select e from Contact e where e.creationDate=?1"),
 	@NamedQuery(name = Contact.QUERY_BY_ID, query = "select e from Contact e where e.id=?1"),
-	@NamedQuery(name = Contact.QUERY_ALL, query = "select e from Contact e where e.parent = NULL") })
+	@NamedQuery(name = Contact.QUERY_ALL, query = "select e from Contact e") })
 public class Contact implements Serializable {
 
     public static final String QUERY_BY_DATE = "byDate";

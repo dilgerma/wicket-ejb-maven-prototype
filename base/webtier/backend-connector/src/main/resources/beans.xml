@@ -11,7 +11,7 @@
 		business-interface="de.md.ejb.service.SessionFacade" />
 
 	<jee:local-slsb id="workshopBean"
-		jndi-name="java:global/hp-app/hp-ejb/WorkshopBean" business-interface="de.md.ejb.workshop.WorkshopBean" />
+		jndi-name="java:global/hp-app/hp-ejb/WorkshopBeanImpl" business-interface="de.md.ejb.workshop.WorkshopBean" />
 
 	<context:component-scan base-package="de.md" />
 	<context:annotation-config />
