@@ -87,7 +87,7 @@ public class ContactBeanImplTest extends DatabaseTestCase {
 	assertEquals(expectedChild, loaded2);
 
 	assertEquals(expected, loaded2.getParent());
-	assertEquals(1, bean.loadAllContacts().size());
+	assertEquals(2, bean.loadAllContacts().size());
 	assertEquals(2, manager.createQuery("select p from Contact p")
 		.getResultList().size());
     }
