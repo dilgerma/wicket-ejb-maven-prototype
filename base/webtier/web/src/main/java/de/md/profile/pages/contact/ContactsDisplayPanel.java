@@ -28,6 +28,15 @@ public class ContactsDisplayPanel extends BasePanel {
 	super(id);
 	initPanel();
     }
+    
+    /* (non-Javadoc)
+     * @see org.apache.wicket.Component#onConfigure()
+     */
+    @Override
+    protected void onConfigure() {
+        // TODO Auto-generated method stub
+        super.onConfigure();
+    }
 
     @SuppressWarnings("unchecked")
     protected void initPanel() {
@@ -60,7 +69,6 @@ public class ContactsDisplayPanel extends BasePanel {
 	    }
 	};
 	add(listView);
-
     }
 
 }
