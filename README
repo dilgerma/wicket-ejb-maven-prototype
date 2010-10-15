@@ -10,4 +10,7 @@ Spring 2.5 as the Connector Technology (so I can run the application presentatio
 Wicket as Presentation Framework
 Scala for Unit Testing (not yet, but planned)
 
-
+Technical Infos:
+The deployed EAR gets mounted in the context "me"
+To start the glassfish database, create a Connection-Pool called "Wicket-DS" and a JDBC DataSource
+called "jdbc/Wicket-DS", start the Database with "./asadmin start-database"
