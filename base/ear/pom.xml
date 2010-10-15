@@ -6,12 +6,18 @@
 	<packaging>ear</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>ear</name>
+	<properties>
+		<deployment.dir>/development/appserv/glassfishv3/glassfish/domains/domain1/autodeploy</deployment.dir>
+	</properties>
+
+	
+	
 	<dependencies>
 		<dependency>
 			<groupId>de.md</groupId>
 			<artifactId>ejb</artifactId>
 			<version>1.0-SNAPSHOT</version>
-			<type>ejb</type>			
+			<type>ejb</type>
 		</dependency>
 		<dependency>
 			<groupId>de.md</groupId>
@@ -52,4 +58,27 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>deploy</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
+						<configuration>
+							<outputDirectory>${deployment.dir}/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>target/*.ear</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<activation>
+			</activation>
+		</profile>
+	</profiles>
 </project>
