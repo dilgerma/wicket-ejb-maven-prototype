@@ -201,6 +201,10 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		<repository>
+			<id>scalatools</id>
+			<url>http://scala-tools.org/repo-releases</url>
+		</repository>
 	</repositories>
 
 	<pluginRepositories>
