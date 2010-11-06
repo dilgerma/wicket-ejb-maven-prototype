@@ -48,13 +48,14 @@
 						<type>installed</type>
 					</container>
 					<configuration>
-						<type>standalone</type>
+						<type>existing</type>
 						<properties>
 							<cargo.hostname>localhost</cargo.hostname>
 						</properties>
 						<configfiles>
 							<configfile>
-							<file>${appserv.dir}/glassfish/domains/${glassfish.domain}/config/domain.xml</file>
+							<!--file>${appserv.dir}/glassfish/domains/${glassfish.domain}/config/domain.xml</file-->
+							<file>src/main/resources/glassfish-config/domain.xml</file>
 							<todir>cargo-domain/config</todir>							
 							</configfile>
 						</configfiles>
