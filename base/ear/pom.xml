@@ -48,7 +48,7 @@
 						<type>installed</type>
 					</container>
 					<configuration>
-						<type>existing</type>
+						<type>standalone</type>
 						<properties>
 							<cargo.hostname>localhost</cargo.hostname>
 						</properties>
