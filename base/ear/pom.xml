@@ -6,12 +6,19 @@
 	<packaging>ear</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>ear</name>
+	<parent>
+		<groupId>de.md</groupId>
+		<artifactId>base</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
 	<properties>
-		<deployment.dir>/development/appserv/glassfishv3/glassfish/domains/domain1/autodeploy</deployment.dir>
+		<deployment.dir>~/development/appserv/glassfishv3/glassfish/domains/domain1/autodeploy</deployment.dir>
+		<appserv.dir>/home/dilgerma/development/appserv/glassfishv3</appserv.dir>
+		<appserv.cargo.id>glassfish3x</appserv.cargo.id>
+		<glassfish.domain>domain1</glassfish.domain>
 	</properties>
 
-	
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>de.md</groupId>
@@ -29,6 +36,39 @@
 	<build>
 		<finalName>hp-app</finalName>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.0.5-SNAPSHOT</version>
+				<!-- Configuration Details in http://cargo.codehaus.org/Maven2+Plugin+Reference+Guide#Maven2PluginReferenceGuide-configurationlocatedBlockquote-->
+				<configuration>
+					<container>
+						<containerId>${appserv.cargo.id}</containerId>
+						<home>${appserv.dir}</home>
+						<type>installed</type>
+					</container>
+					<configuration>
+						<type>standalone</type>
+						<properties>
+							<cargo.hostname>localhost</cargo.hostname>
+						</properties>
+						<configfiles>
+							<configfile>
+							<file>${appserv.dir}/glassfish/domains/${glassfish.domain}/config/domain.xml</file>
+							<todir>cargo-domain/config</todir>							
+							</configfile>
+						</configfiles>
+						<deployables>
+                                                        <deployable>
+                                                                <groupId>de.md</groupId>
+                                                                <artifactId>ear</artifactId>
+                                                                <type>ear</type>
+                                                        </deployable>
+                                                </deployables>
+	
+					</configuration>
+				</configuration>
+			</plugin>
 			<plugin>
 				<artifactId>maven-ear-plugin</artifactId>
 				<configuration>

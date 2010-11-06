@@ -12,6 +12,8 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 
+import org.springframework.jmx.export.annotation.ManagedResource;
+
 import de.md.ejb.contact.ContactsBean;
 import de.md.ejb.contact.model.Contact;
 import de.md.ejb.project.ProjectLoaderBean;
@@ -25,6 +27,7 @@ import de.md.ejb.service.SessionFacade;
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
 @Local(SessionFacade.class)
+@ManagedResource
 public class SessionFacadeImpl implements SessionFacade {
 
     @EJB
