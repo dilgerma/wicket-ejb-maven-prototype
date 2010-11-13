@@ -11,7 +11,7 @@
 	<artifactId>web</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<!-- TODO project name  -->
+	<!-- TODO project name -->
 	<name>web</name>
 	<description></description>
 
@@ -33,9 +33,9 @@
 
 		<profile>
 			<id>mock</id>
-			
+
 			<dependencies>
-				<!-- Enable Mocks-->
+				<!-- Enable Mocks -->
 				<dependency>
 					<groupId>de.md</groupId>
 					<artifactId>mock-backend-connector</artifactId>
@@ -54,7 +54,7 @@
 								<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
 									<port>8080</port>
 									<maxIdleTime>60000</maxIdleTime>
-									
+
 								</connector>
 							</connectors>
 						</configuration>
@@ -81,12 +81,18 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring</artifactId>
+			<artifactId>spring-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket-spring</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>

@@ -8,26 +8,28 @@
 	<name>base</name>
 	<url>http://maven.apache.org</url>
 
-	
+	<properties>
+		<spring.version>3.0.5.RELEASE</spring.version>
+		<wicket.version>1.4.12</wicket.version>
+	</properties>
+
 	<build>
-		
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
+				<artifactId>
+					maven-compiler-plugin
+				</artifactId>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
 			</plugin>
 
-			<!--
-				plugin> <groupId>org.zeroturnaround</groupId>
-				<artifactId>javarebel-maven-plugin</artifactId> <executions>
-				<execution> <id>generate-rebel-xml</id>
-				<phase>process-resources</phase> <goals> <goal>generate</goal>
-				</goals> </execution> </executions> </plugin
-			-->
+			<!-- plugin> <groupId>org.zeroturnaround</groupId> <artifactId>javarebel-maven-plugin</artifactId> 
+				<executions> <execution> <id>generate-rebel-xml</id> <phase>process-resources</phase> 
+				<goals> <goal>generate</goal> </goals> </execution> </executions> </plugin -->
 
 			<plugin>
 				<groupId>org.scala-tools</groupId>
@@ -82,21 +84,56 @@
 			<dependency>
 				<groupId>org.apache.wicket</groupId>
 				<artifactId>wicket</artifactId>
-				<version>1.4.12</version>
+				<version>${wicket.version}</version>
 				<type>jar</type>
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
-				<artifactId>spring</artifactId>
-				<version>3.0.5-RELEASE</version>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jmx</artifactId>
+				<version>${spring.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-annot</artifactId>
+				<version>${spring.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
 				<type>jar</type>
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.wicket</groupId>
 				<artifactId>wicket-spring</artifactId>
-				<version>1.4.12</version>
+				<version>${wicket.version}</version>
 				<type>jar</type>
 				<scope>compile</scope>
 			</dependency>
@@ -219,6 +256,11 @@
 		<repository>
 			<id>codehaus-snapshots</id>
 			<url>http://ci.repository.codehaus.org/</url>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.bundles.release</id>
+			<name>SpringSource Enterprise Bundle Repository - SpringSource Releases</name>
+			<url>http://repository.springsource.com/maven/bundles/release</url>
 		</repository>
 
 	</repositories>

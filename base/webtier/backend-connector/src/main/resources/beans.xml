@@ -14,6 +14,14 @@
 	<jee:local-slsb id="workshopBean"
 		jndi-name="java:global/hp-app/hp-ejb/WorkshopBeanImpl" business-interface="de.md.ejb.workshop.WorkshopBean" />
 
+	<!-- Exporting Mbeans -->
+	<bean id="exporter" lazy-init="false" class="org.springframework.jmx.export.MBeanExporter">
+		<property name="beans">
+			<map>
+				<entry key="md:name=WebJMX" value-ref="sessionFacade" />
+			</map>
+		</property>
+	</bean>
 	
 	 <context:mbean-export/>
 	<context:component-scan base-package="de.md" />

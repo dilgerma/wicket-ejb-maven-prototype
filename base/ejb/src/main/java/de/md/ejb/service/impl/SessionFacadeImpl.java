@@ -27,7 +27,7 @@ import de.md.ejb.service.SessionFacade;
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
 @Local(SessionFacade.class)
-@ManagedResource
+@ManagedResource(objectName = "bean:name=simpleBean", description = "A sample JMX-managed bean")
 public class SessionFacadeImpl implements SessionFacade {
 
     @EJB

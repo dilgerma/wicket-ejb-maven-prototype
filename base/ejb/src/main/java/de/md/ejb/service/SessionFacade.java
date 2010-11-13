@@ -6,7 +6,8 @@ package de.md.ejb.service;
 import java.util.Date;
 import java.util.List;
 
-import org.hibernate.annotations.Loader;
+import org.springframework.jmx.export.annotation.ManagedOperation;
+import org.springframework.jmx.export.annotation.ManagedResource;
 
 import de.md.ejb.contact.model.Contact;
 import de.md.ejb.project.model.Project;
@@ -18,12 +19,13 @@ import de.md.ejb.project.model.Project;
  * @author dilgerma
  * 
  */
-
+@ManagedResource(objectName="WebMBean")
 public interface SessionFacade {
 
     /*
      * ContactRelated
      */
+    @ManagedOperation
     public void saveContact(Contact contact);
 
     public List<Contact> getContactsByDate(Date date);
