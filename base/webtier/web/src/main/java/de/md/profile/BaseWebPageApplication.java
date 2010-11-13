@@ -10,7 +10,7 @@ import org.apache.wicket.Response;
 import org.apache.wicket.Session;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
-import org.springframework.context.support.GenericApplicationContext;
+import org.springframework.stereotype.Service;
 
 import de.md.profile.pages.ProjectsPage;
 
@@ -20,9 +20,8 @@ import de.md.profile.pages.ProjectsPage;
  * @author dilgerma
  * 
  */
+@Service("application")
 public abstract class BaseWebPageApplication extends WebApplication {
-
-    private GenericApplicationContext context;
 
     public BaseWebPageApplication(){
     }
