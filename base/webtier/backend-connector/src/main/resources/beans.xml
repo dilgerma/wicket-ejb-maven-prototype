@@ -1,29 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:jee="http://www.springframework.org/schema/jee"
-	 xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
-		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd">
-	
-	<jee:local-slsb id="sessionFacade"
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+
+	<jee:jndi-lookup id="sessionFacade"
 		jndi-name="java:global/hp-app/hp-ejb/SessionFacadeImpl"
-		business-interface="de.md.ejb.service.SessionFacade" />
+		proxy-interface="de.md.ejb.service.SessionFacade" />
 
-	<jee:local-slsb id="workshopBean"
-		jndi-name="java:global/hp-app/hp-ejb/WorkshopBeanImpl" business-interface="de.md.ejb.workshop.WorkshopBean" />
+	<jee:jndi-lookup id="workshopBean"
+		jndi-name="java:global/hp-app/hp-ejb/WorkshopBeanImpl"
+		proxy-interface="de.md.ejb.workshop.WorkshopBean" />
 
-	<!-- Exporting Mbeans -->
-	<bean id="exporter" lazy-init="false" class="org.springframework.jmx.export.MBeanExporter">
-		<property name="beans">
-			<map>
-				<entry key="md:name=WebJMX" value-ref="sessionFacade" />
-			</map>
-		</property>
-	</bean>
-	
-	 <context:mbean-export/>
+	<context:mbean-export />
 	<context:component-scan base-package="de.md" />
 	<context:annotation-config />
 </beans>

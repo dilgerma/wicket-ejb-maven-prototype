@@ -6,8 +6,7 @@ package de.md.ejb.service;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.jmx.export.annotation.ManagedOperation;
-import org.springframework.jmx.export.annotation.ManagedResource;
+import org.springframework.stereotype.Service;
 
 import de.md.ejb.contact.model.Contact;
 import de.md.ejb.project.model.Project;
@@ -19,14 +18,13 @@ import de.md.ejb.project.model.Project;
  * @author dilgerma
  * 
  */
-@ManagedResource(objectName="WebMBean")
+@Service("sessionFacade")
 public interface SessionFacade {
 
     /*
      * ContactRelated
      */
-    @ManagedOperation
-    public void saveContact(Contact contact);
+   public void saveContact(Contact contact);
 
     public List<Contact> getContactsByDate(Date date);
 

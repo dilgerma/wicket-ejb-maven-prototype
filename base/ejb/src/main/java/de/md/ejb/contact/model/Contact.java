@@ -40,6 +40,10 @@ import de.md.ejb.util.DateUtil;
 	@NamedQuery(name = Contact.QUERY_ALL, query = "select e from Contact e") })
 public class Contact implements Serializable {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     public static final String QUERY_BY_DATE = "byDate";
     public static final String QUERY_BY_ID = "byId";
     public static final String QUERY_ALL = "all";
