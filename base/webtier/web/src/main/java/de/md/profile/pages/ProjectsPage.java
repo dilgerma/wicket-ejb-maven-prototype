@@ -20,53 +20,53 @@ import de.md.ejb.service.SessionFacade;
  */
 public class ProjectsPage extends BasePageWithMenu {
 
-    @SpringBean
-    private SessionFacade facade;
+	@SpringBean
+	private SessionFacade facade;
 
-    public ProjectsPage(){
-	setTitle("Projekte");
-    }
-    
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.md.me.pages.SimpleMePage#initPages()
-     */
-    @Override
-    public void initPages() {
-	createMenu();
-	Label label = new Label("pageTitle", getTitle());
-	ListView<Project> listView = new ListView<Project>("projectsList", facade
-		.loadAllProjects()) {
+	public ProjectsPage() {
+		setTitle("Projekte");
+	}
 
-	    @Override
-	    protected void populateItem(ListItem<Project> item) {
-		item.add(new Label("title", new PropertyModel<Project>(item
-			.getModelObject(), "title")));
-		item.add(new Label("projectDescription",
-			new PropertyModel<Project>(item.getModelObject(),
-				"projectDescription")));
-		item.add(new ListView("technologyList",
-			new PropertyModel<Project>(item.getModelObject(),
-				"technologies")) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.md.me.pages.SimpleMePage#initPages()
+	 */
+	@Override
+	public void initPages() {
+		createMenu();
+		Label label = new Label("pageTitle", getTitle());
+		ListView<Project> listView = new ListView<Project>("projectsList",
+				facade.loadAllProjects()) {
 
-		    @Override
-		    protected void populateItem(ListItem item) {
-			
-			item.add(new Label("name", new PropertyModel(item
-				.getModelObject(), "name")));
-		    }
+			@Override
+			protected void populateItem(ListItem<Project> item) {
+				item.add(new Label("title", new PropertyModel<Project>(item
+						.getModelObject(), "title")));
+				item.add(new Label("projectDescription",
+						new PropertyModel<Project>(item.getModelObject(),
+								"projectDescription")));
+				item.add(new ListView("technologyList",
+						new PropertyModel<Project>(item.getModelObject(),
+								"technologies")) {
 
-		});
-	    }
+					@Override
+					protected void populateItem(ListItem item) {
 
-	};
-	add(label);
-	add(listView);
+						item.add(new Label("name", new PropertyModel(item
+								.getModelObject(), "name")));
+					}
 
-    }
+				});
+			}
 
-    public void setSessionFacade(SessionFacade facade) {
-	this.facade = facade;
-    }
+		};
+		add(label);
+		add(listView);
+
+	}
+
+	public void setSessionFacade(SessionFacade facade) {
+		this.facade = facade;
+	}
 }

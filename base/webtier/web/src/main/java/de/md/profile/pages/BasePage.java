@@ -17,47 +17,44 @@ import de.md.profile.HomepageWebSession;
  */
 public abstract class BasePage extends WebPage {
 
-    protected String title;
-    
-    /**
-     * Custom Constructor.
-     * */
-    public BasePage() {
-	initPages();	
-    }
+	protected String title;
 
-    
-    
-    /**
-     * @return the title
-     */
-    public String getTitle() {
-        return title;
-    }
-    
-    /**
-     * @param title the PageTitle
-     * */
-    protected void setTitle(String title){
-	this.title = title;
-    }
+	/**
+	 * Custom Constructor.
+	 * */
+	public BasePage() {
+		initPages();
+	}
 
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
 
+	/**
+	 * @param title
+	 *            the PageTitle
+	 * */
+	protected void setTitle(String title) {
+		this.title = title;
+	}
 
-    /**
-     * Method used to init the Pages.
-     * */
-    public abstract void initPages();
+	/**
+	 * Method used to init the Pages.
+	 * */
+	public abstract void initPages();
 
-    /**
-     * @return the Application
-     * */
-    public HomePageApplication getWebApplication() {
-	return (HomePageApplication) getApplication();
-    }
+	/**
+	 * @return the Application
+	 * */
+	public HomePageApplication getWebApplication() {
+		return (HomePageApplication) getApplication();
+	}
 
-    public HomepageWebSession getWebSession() {
-	return (HomepageWebSession) getSession();
-    }
+	public HomepageWebSession getWebSession() {
+		return (HomepageWebSession) getSession();
+	}
 
 }

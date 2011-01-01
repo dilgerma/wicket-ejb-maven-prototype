@@ -48,6 +48,7 @@ public class ContactsBeanImpl implements ContactsBean {
     @Override
     @SuppressWarnings("unchecked")
     public Contact loadContact(long contactId) {
+    	
 	List<Contact> resultList = entityManager.createNamedQuery(
 		Contact.QUERY_BY_ID).setParameter(1, contactId)
 		.getResultList();

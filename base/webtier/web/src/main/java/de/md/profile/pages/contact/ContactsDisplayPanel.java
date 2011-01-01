@@ -24,51 +24,55 @@ import de.md.profile.BasePanel;
  */
 public class ContactsDisplayPanel extends BasePanel {
 
-    public ContactsDisplayPanel(String id) {
-	super(id);
-	initPanel();
-    }
-    
-    /* (non-Javadoc)
-     * @see org.apache.wicket.Component#onConfigure()
-     */
-    @Override
-    protected void onConfigure() {
-        // TODO Auto-generated method stub
-        super.onConfigure();
-    }
+	public ContactsDisplayPanel(String id) {
+		super(id);
+		initPanel();
+	}
 
-    @SuppressWarnings("unchecked")
-    protected void initPanel() {
-	final ListView listView = new ListView("contactInfo", new Model<ArrayList<Contact>>() {
-	    public ArrayList<Contact> getObject() {
-		return new ArrayList<Contact>(getWebSession().getContacts());
-	    };
-	}) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.apache.wicket.Component#onConfigure()
+	 */
+	@Override
+	protected void onConfigure() {
+		// TODO Auto-generated method stub
+		super.onConfigure();
+	}
 
-	    private static final long serialVersionUID = 1L;
+	@SuppressWarnings("unchecked")
+	protected void initPanel() {
+		final ListView listView = new ListView("contactInfo",
+				new Model<ArrayList<Contact>>() {
+					public ArrayList<Contact> getObject() {
+						return new ArrayList<Contact>(getWebSession()
+								.getContacts());
+					};
+				}) {
 
-	    /*
-	     * (non-Javadoc)
-	     * 
-	     * @see
-	     * org.apache.wicket.markup.html.list.ListView#populateItem(org.
-	     * apache.wicket.markup.html.list.ListItem)
-	     */
-	    @Override
-	    protected void populateItem(ListItem item) {
-		
-		Contact contactItem = (Contact) item.getModelObject();
-		item.add(new Label("name", new PropertyModel(contactItem,
-			"name")));
-		item.add(new Label("email", new PropertyModel(contactItem,
-			"email")));
-		item.add(new Label("text", new PropertyModel(contactItem,
-			"text")));
+			private static final long serialVersionUID = 1L;
 
-	    }
-	};
-	add(listView);
-    }
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see
+			 * org.apache.wicket.markup.html.list.ListView#populateItem(org.
+			 * apache.wicket.markup.html.list.ListItem)
+			 */
+			@Override
+			protected void populateItem(ListItem item) {
+
+				Contact contactItem = (Contact) item.getModelObject();
+				item.add(new Label("name", new PropertyModel(contactItem,
+						"name")));
+				item.add(new Label("email", new PropertyModel(contactItem,
+						"email")));
+				item.add(new Label("text", new PropertyModel(contactItem,
+						"text")));
+
+			}
+		};
+		add(listView);
+	}
 
 }

@@ -29,98 +29,96 @@ import de.md.profile.pages.contact.ContactsDisplayPanel;
  */
 public class ContactsPage extends BasePageWithMenu {
 
-    @SpringBean
-    private SessionFacade facade;
-    private ContactsDisplayPanel contactDisplayPanel;
-    
-    public ContactsPage() {
-	setTitle("Kontakt");
-	if(getWebSession().getContacts() == null){
-	    getWebSession().setContacts(facade.loadAllContacts());
+	@SpringBean
+	private SessionFacade facade;
+	private ContactsDisplayPanel contactDisplayPanel;
+
+	public ContactsPage() {
+		setTitle("Kontakt");
+		if (getWebSession().getContacts() == null) {
+			getWebSession().setContacts(facade.loadAllContacts());
+		}
 	}
-    }
-    
-    
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.md.profile.pages.BasePage#initPages()
-     */
-    @Override
-    public void initPages() {
-	super.initPages();
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.md.profile.pages.BasePage#initPages()
+	 */
+	@Override
+	public void initPages() {
+		super.initPages();
 
-	Contact contact = newContact();
-	FeedbackPanel feedbackPanel = new FeedbackPanel("contactsFormFeedback");
-	feedbackPanel.setOutputMarkupPlaceholderTag(true);
-	feedbackPanel.setOutputMarkupId(true);
-	add(feedbackPanel);
-	
-	final Form form = new Form("contactsForm",
-		new CompoundPropertyModel<Contact>(contact)) {
-	    protected void onSubmit() {
-		//omitted
-	    };
+		Contact contact = newContact();
+		FeedbackPanel feedbackPanel = new FeedbackPanel("contactsFormFeedback");
+		feedbackPanel.setOutputMarkupPlaceholderTag(true);
+		feedbackPanel.setOutputMarkupId(true);
+		add(feedbackPanel);
 
-	    /*
-	     * (non-Javadoc)
-	     * 
-	     * @see org.apache.wicket.MarkupContainer#isTransparentResolver()
-	     */
-	    @Override
-	    public boolean isTransparentResolver() {
-		return true;
-	    }
-	};
-	form.setOutputMarkupId(true);
+		final Form form = new Form("contactsForm",
+				new CompoundPropertyModel<Contact>(contact)) {
+			protected void onSubmit() {
+				// omitted
+			};
 
-	final TextField nameField = new TextField("name");
-	nameField.setRequired(true);
-	form.add(nameField);
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see org.apache.wicket.MarkupContainer#isTransparentResolver()
+			 */
+			@Override
+			public boolean isTransparentResolver() {
+				return true;
+			}
+		};
+		form.setOutputMarkupId(true);
 
-	final TextField emailField = new TextField("email");
-	emailField.setRequired(true);
-	form.add(emailField);
+		final TextField nameField = new TextField("name");
+		nameField.setRequired(true);
+		form.add(nameField);
 
-	final DropDownChoice reasonField = new DropDownChoice("reason", Arrays
-		.asList(ContactReason.values()));
-	reasonField.setRequired(true);
-	form.add(reasonField);
+		final TextField emailField = new TextField("email");
+		emailField.setRequired(true);
+		form.add(emailField);
 
-	final TextArea textArea = new TextArea("text");
-	textArea.setRequired(true);
-	form.add(textArea);
+		final DropDownChoice reasonField = new DropDownChoice("reason",
+				Arrays.asList(ContactReason.values()));
+		reasonField.setRequired(true);
+		form.add(reasonField);
 
-	form.add(new AjaxSubmitLink("contactSubmit", form) {
+		final TextArea textArea = new TextArea("text");
+		textArea.setRequired(true);
+		form.add(textArea);
 
-	    /*
-	     * (non-Javadoc)
-	     * 
-	     * @see org.apache.wicket.markup.html.form.Button#onSubmit()
-	     */
-	    @Override
-	    public void onSubmit(AjaxRequestTarget target, Form form) {
-		facade.saveContact((Contact)form.getModelObject());
-		getWebSession().setContacts(facade.loadAllContacts());
-		target.addComponent(contactDisplayPanel);
-		form.getModel().setObject(newContact());
-	    }
+		form.add(new AjaxSubmitLink("contactSubmit", form) {
 
-	});
-	
-	add(form);
-	contactDisplayPanel = new ContactsDisplayPanel("contacts");
-	contactDisplayPanel.setOutputMarkupId(true);
-	add(contactDisplayPanel);
-    }
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see org.apache.wicket.markup.html.form.Button#onSubmit()
+			 */
+			@Override
+			public void onSubmit(AjaxRequestTarget target, Form form) {
+				facade.saveContact((Contact) form.getModelObject());
+				getWebSession().setContacts(facade.loadAllContacts());
+				target.addComponent(contactDisplayPanel);
+				form.getModel().setObject(newContact());
+			}
 
-    /**
-     * @return
-     */
-    private Contact newContact() {
-	Contact co = new Contact("", "", new Date(), ContactReason.COMMENT, "");
-	return co;
-    }
+		});
+
+		add(form);
+		contactDisplayPanel = new ContactsDisplayPanel("contacts");
+		contactDisplayPanel.setOutputMarkupId(true);
+		add(contactDisplayPanel);
+	}
+
+	/**
+	 * @return
+	 */
+	private Contact newContact() {
+		Contact co = new Contact("", "", new Date(), ContactReason.COMMENT, "");
+		return co;
+	}
 
 }

@@ -27,6 +27,7 @@ import de.md.ejb.project.model.Project;
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
 public class ProjectLoaderBeanImpl implements ProjectLoaderBean {
 
+	
     @PersistenceContext(name = "wicket-ejb")
     private EntityManager entityManager;
 

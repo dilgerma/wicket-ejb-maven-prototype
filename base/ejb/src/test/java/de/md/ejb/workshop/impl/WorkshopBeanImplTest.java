@@ -26,7 +26,7 @@ public class WorkshopBeanImplTest extends DatabaseTestCase {
 
 
     public void setUp() throws Exception {
-	super.setUp();
+	super.setUp(); 
 	bean = new WorkshopBeanImpl();
 	try {
 	    manager = injectEntityManager("wicket-test", "entityManager", bean);

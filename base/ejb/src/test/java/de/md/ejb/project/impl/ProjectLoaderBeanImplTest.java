@@ -21,19 +21,20 @@ import de.md.ejb.project.model.Technology;
  *
  */
 public class ProjectLoaderBeanImplTest extends DatabaseTestCase {
-
+ 
     private ProjectLoaderBeanImpl bean;
-    private EntityManager manager;
-    
+    private EntityManager manager; 
+     
     public void setUp() throws Exception{
+    
 	super.setUp();
 	bean = new ProjectLoaderBeanImpl();
 	try {
 	    manager = injectEntityManager("wicket-test", "entityManager", bean);
 	} catch (Exception e) {
 	    throw new RuntimeException(e);
-	}
-	
+	} 
+	 
     }
     
     public void tearDown(){
